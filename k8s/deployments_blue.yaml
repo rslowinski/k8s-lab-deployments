@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoapp-blue
+spec:
+  selector:
+    matchLabels:
+      app: demoapp
+      type: blue
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: demoapp
+        type: blue
+    spec:
+      containers:
+        - name: demoapp
+          image: k8slab2/demoapp:version1.0
